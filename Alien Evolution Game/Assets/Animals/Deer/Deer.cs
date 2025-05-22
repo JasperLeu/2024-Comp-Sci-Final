@@ -41,7 +41,6 @@ public class Deer : MonoBehaviour
             if (Vector2.Distance(pos, startPos) >= targetDist)
             {
                 float val = Random.Range(0f, 1f);
-                Debug.Log(val);
                 if (val < idleChance)
                 {
                     goIdle();
@@ -61,9 +60,9 @@ public class Deer : MonoBehaviour
             }
         }
 
-            // HUNGER LOGIC
-            // loose food
-            food -= starveRate * Time.deltaTime;
+        // HUNGER LOGIC
+        // loose food
+        food -= starveRate * Time.deltaTime;
         // eat food if on grass or near a plant
 
         // DYING

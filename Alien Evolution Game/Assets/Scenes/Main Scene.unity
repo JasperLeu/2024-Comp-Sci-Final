@@ -773,7 +773,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 6, y: 8, z: 0}
+    - position: {x: 6, y: 7.999999, z: 0}
       leftTangent: {x: 1, y: 6, z: 0}
       rightTangent: {x: -1.2020046, y: -7.212027, z: -0}
       mode: 1
