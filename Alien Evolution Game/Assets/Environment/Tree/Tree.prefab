@@ -49,33 +49,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8322c47d4e1677e468d4866d75219361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trunkSprite: {fileID: 7676706553552890735}
-  leavesSprite: {fileID: 2316632099598251144}
-  collision: {fileID: 5619455484622882380}
-  shadow: {fileID: 4200780261150247705}
-  trees:
-  - leaves: {fileID: -101646767, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
-    trunk: {fileID: -745319587, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
-    collisionPos: {x: 0.06, y: 0.36}
-    collisionSize: {x: 0.66, y: 0.36}
-    shadowScale: {x: 0.363927, y: 0.1091781, z: 0.363927}
-    shadowPos: {x: 0.08, y: 0.16, z: 0.1}
-  - leaves: {fileID: 798051645, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
-    trunk: {fileID: 2077314507, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
-    collisionPos: {x: -0.035981502, y: 0.3120534}
-    collisionSize: {x: 1.118932, y: 0.45589322}
-    shadowScale: {x: 0.51740116, y: 0.15522036, z: 0.51740116}
-    shadowPos: {x: -0.07, y: 0.11, z: 0.1}
-  - leaves: {fileID: 569503041, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
-    trunk: {fileID: 177313572, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
+  gameManager: {fileID: 0}
+  states:
+  - parts:
+    - {fileID: -745319587, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
+    - {fileID: -101646767, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
+    collisionPos: {x: 0.1026241, y: 0.2862732}
+    collisionSize: {x: 1.0062525, y: 0.34306207}
+    shadowPos: {x: 0.09, y: 0.2, z: 0.01}
+    shadowScale: {x: 0.3780773, y: 0.1134232, z: 0.3780773}
+  - parts:
+    - {fileID: 2077314507, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
+    - {fileID: 798051645, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
     collisionPos: {x: 0.08723154, y: 0.09642649}
     collisionSize: {x: 1.447513, y: 0.53803986}
+    shadowPos: {x: 0.06, y: -0.01, z: 0.01}
     shadowScale: {x: 0.67748505, y: 0.20324554, z: 0.67748505}
-    shadowPos: {x: 0.06, y: -0.01, z: 0.1}
-  trunkColors:
-    serializedVersion: 2
-    key0: {r: 0.49056602, g: 0.4766256, b: 0.40032038, a: 1}
-    key1: {r: 0.41509432, g: 0.23651756, b: 0.06852971, a: 1}
+  - parts:
+    - {fileID: 177313572, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
+    - {fileID: 569503041, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
+    collisionPos: {x: 0.08238937, y: 0.04084989}
+    collisionSize: {x: 1.5526004, y: 0.52623934}
+    shadowPos: {x: 0.04, y: -0.11, z: 0.01}
+    shadowScale: {x: 0.7636286, y: 0.2290886, z: 0.7636286}
+  partSprites:
+  - {fileID: 7676706553552890735}
+  - {fileID: 2316632099598251144}
+  partGradients:
+  - serializedVersion: 2
+    key0: {r: 0.7264151, g: 0.71946603, b: 0.6476059, a: 1}
+    key1: {r: 0.77254903, g: 0.57496095, b: 0.26666665, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -102,18 +105,17 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  leavesColors:
-    serializedVersion: 2
-    key0: {r: 0.5849056, g: 0.56402373, b: 0.4717871, a: 1}
-    key1: {r: 0.66698235, g: 0.6981132, b: 0.4313813, a: 1}
-    key2: {r: 0.42311433, g: 0.7169812, b: 0.16571736, a: 0}
+  - serializedVersion: 2
+    key0: {r: 0.7425905, g: 0.754717, b: 0.65859735, a: 1}
+    key1: {r: 0.7169812, g: 0.67326707, b: 0.4362763, a: 1}
+    key2: {r: 0.4466294, g: 0.745283, b: 0.21444462, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 25294
+    ctime1: 21270
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -132,8 +134,13 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  collision: {fileID: 5619455484622882380}
+  shadow: {fileID: 4200780261150247705}
   health: 1
+  healthTime: 30
+  deathTime: 15
   age: 0
+  ageTime: 40
 --- !u!70 &5619455484622882380
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -166,8 +173,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08723154, y: 0.09642649}
-  m_Size: {x: 1.447513, y: 0.53803986}
+  m_Offset: {x: 0.08238937, y: 0.04084989}
+  m_Size: {x: 1.5526004, y: 0.52623934}
   m_Direction: 1
 --- !u!114 &6218092214417789049
 MonoBehaviour:
@@ -361,23 +368,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3614492747571282667, guid: 46c2a55729117a740acbe3b24366549e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.67748505
+      value: 0.7636286
       objectReference: {fileID: 0}
     - target: {fileID: 3614492747571282667, guid: 46c2a55729117a740acbe3b24366549e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.20324554
+      value: 0.2290886
       objectReference: {fileID: 0}
     - target: {fileID: 3614492747571282667, guid: 46c2a55729117a740acbe3b24366549e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.67748505
+      value: 0.7636286
       objectReference: {fileID: 0}
     - target: {fileID: 3614492747571282667, guid: 46c2a55729117a740acbe3b24366549e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 3614492747571282667, guid: 46c2a55729117a740acbe3b24366549e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: -0.11
       objectReference: {fileID: 0}
     - target: {fileID: 3614492747571282667, guid: 46c2a55729117a740acbe3b24366549e, type: 3}
       propertyPath: m_LocalPosition.z

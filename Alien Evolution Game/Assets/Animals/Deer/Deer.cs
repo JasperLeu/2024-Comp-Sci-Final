@@ -37,8 +37,7 @@ public class Deer : MonoBehaviour
         // MOVEMENT
         if (!idle)
         {
-            Vector2 pos = new Vector2(transform.position.x, transform.position.y);
-            if (Vector2.Distance(pos, startPos) >= targetDist)
+            if (Vector2.Distance(transform.position, startPos) >= targetDist)
             {
                 float val = Random.Range(0f, 1f);
                 if (val < idleChance)
@@ -79,7 +78,7 @@ public class Deer : MonoBehaviour
         targetDist = Random.Range(distRange[0], distRange[1]);
         dir = Random.Range(0, 2 * Mathf.PI);
         moveVec = new Vector2(Mathf.Cos(dir) * speed, Mathf.Sin(dir) * speed);
-        startPos = new Vector2(transform.position.x, transform.position.y);
+        startPos = transform.position;
         rb.velocity = moveVec;
     }
 

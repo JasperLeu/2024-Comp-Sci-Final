@@ -5,13 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Environment")]
-    public List<Tree> trees;
+    public List<Fertilizer> soil;
+    public float healTime;
     void Start()
     {
         
     }
     void Update()
     {
-        
     }
 }
