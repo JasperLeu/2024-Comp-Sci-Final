@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 961b7756e6f6ccf43a236e33f5e81792
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fertilityTexture: {instanceID: 0}
+  - groundMat: {fileID: 2100000, guid: 2669a28cfd1561f4d9864887e0bed9b9, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
