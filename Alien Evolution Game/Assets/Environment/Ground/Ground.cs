@@ -8,7 +8,10 @@ public class Ground : MonoBehaviour
     public int height = 100;
     public Texture2D fertilityTexture;
     public Material groundMat;
+    [Header("Fertility Decay")]
     public float fertilityDecayRate;
+    public float decayDelayTime = 1f;
+    float decayTimer = 0f;
 
     void Start()
     {
@@ -21,28 +24,34 @@ public class Ground : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                fertilityTexture.SetPixel(x, y, new Color(0, 0, 0));
+                float val = Mathf.PerlinNoise(x * 0.1f, y * 0.1f) / 2 + .5f;
+                fertilityTexture.SetPixel(x, y, new Color(val, 0, 0));
             }
         }
         fertilityTexture.Apply();
-
         groundMat.SetTexture("_Fertility", fertilityTexture);
-        FertilizeArea(100, 100, 1, 300);
     }
 
     private void Update()
     {
-        // decay fertility over time
-        //for (int x = 0; x < width; x++)
-        //{
-        //    for (int y = 0; y < height; y++)
-        //    {
-        //        Color pixelColor = fertilityTexture.GetPixel(x, y);
-        //        float newValue = Mathf.Clamp(pixelColor.r - Time.deltaTime * fertilityDecayRate, 0, 1);
-        //        fertilityTexture.SetPixel(x, y, new Color(newValue, 0, 0));
-        //    }
-        //}
-        //fertilityTexture.Apply();
+        // Update fertility decay timer
+        decayTimer += Time.deltaTime;
+
+        if (decayTimer >  decayDelayTime)
+        {
+            decayTimer = 0f;
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    Color pixelColor = fertilityTexture.GetPixel(x, y);
+                    float decay = fertilityDecayRate * decayDelayTime;
+                    float newValue = Mathf.Clamp(pixelColor.r - decay, 0, 1);
+                    fertilityTexture.SetPixel(x, y, new Color(newValue, 0, 0));
+                }
+            }
+            fertilityTexture.Apply();
+        }
     }
 
     public void FertilizeArea(int xPos, int yPos, float value, float radius)

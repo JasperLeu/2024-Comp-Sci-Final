@@ -8,11 +8,10 @@ public class Deer : MonoBehaviour
     [Header("Movement")]
     public Rigidbody2D rb;
     public float speed;
-    public float dir;
+    public Vector2 targetPos;
     public Vector2 distRange;
+    public float arriveThresh;
     Vector2 moveVec;
-    float targetDist;
-    Vector2 startPos;
 
     [Header("Idling")]
     public bool idle = false;
@@ -23,6 +22,7 @@ public class Deer : MonoBehaviour
 
     [Header("Animations")]
     public Animator anim;
+
     [Header("Stats")]
     public float food = 1;
     public float starveRate;
@@ -37,7 +37,31 @@ public class Deer : MonoBehaviour
         // MOVEMENT
         if (!idle)
         {
-            if (Vector2.Distance(transform.position, startPos) >= targetDist)
+            // Determine closest cardinal direction
+            Vector2 dirVec = rb.velocity.normalized;
+            float absX = Mathf.Abs(dirVec.x);
+            float absY = Mathf.Abs(dirVec.y);
+
+            float animX = 0;
+            float animY = 0;
+
+            if (absX > absY)
+            {
+                animX = dirVec.x > 0 ? 1 : -1;
+                animY = 0;
+            }
+            else
+            {
+                animX = 0;
+                animY = dirVec.y > 0 ? 1 : -1;
+            }
+
+            anim.SetFloat("x", animX);
+            anim.SetFloat("y", animY);
+
+            Debug.Log("Dist: " + Vector2.Distance(transform.position, targetPos));
+            Debug.DrawLine(transform.position, targetPos, Color.red);
+            if (Vector2.Distance(transform.position, targetPos) <= arriveThresh)
             {
                 float val = Random.Range(0f, 1f);
                 if (val < idleChance)
@@ -52,6 +76,11 @@ public class Deer : MonoBehaviour
         }
         else
         {
+            // Idle Animation
+            anim.SetFloat("x", 0);
+            anim.SetFloat("y", 0);
+
+            // Check if idle time is over
             idleTimer += Time.deltaTime;
             if (idleTimer > idleTime)
             {
@@ -75,14 +104,19 @@ public class Deer : MonoBehaviour
     void startWalking()
     {
         idle = false;
-        targetDist = Random.Range(distRange[0], distRange[1]);
-        dir = Random.Range(0, 2 * Mathf.PI);
-        moveVec = new Vector2(Mathf.Cos(dir) * speed, Mathf.Sin(dir) * speed);
-        startPos = transform.position;
+        Vector2 startPos = transform.position;
+        float angle;
+        do
+        {
+            angle = Random.Range(0, Mathf.PI * 2);
+            targetPos = startPos + new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * Random.Range(distRange[0], distRange[1]);
+        }
+        while(!(targetPos[0] > -30 && targetPos[0] < 30 && targetPos[1] > -30 && targetPos[1] < 30));
+        moveVec = new Vector2(targetPos.x - startPos.x, targetPos.y - startPos.y).normalized * speed;
         rb.velocity = moveVec;
     }
 
-    // Go idle
+    // Going idle
     void goIdle()
     {
         idle = true;

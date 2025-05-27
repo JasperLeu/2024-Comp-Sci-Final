@@ -43,7 +43,7 @@ Animator:
   m_GameObject: {fileID: 595054608907365284}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 31bdf620e2e72104e96dc759582385bf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -95,7 +95,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -423201053, guid: 55bf46d777464574aad90ca04d866fb3, type: 3}
+  m_Sprite: {fileID: -2070519754, guid: 55bf46d777464574aad90ca04d866fb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,10 +157,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 9058008371448984394}
   speed: 6
-  dir: 0
+  targetPos: {x: 0, y: 0}
   distRange: {x: 7, y: 12}
+  arriveThresh: 1
   idle: 0
-  idleChance: 0.3
+  idleChance: 0.4
   idleTimeRange: {x: 6, y: 9}
   anim: {fileID: 1191433624988409044}
   food: 1
