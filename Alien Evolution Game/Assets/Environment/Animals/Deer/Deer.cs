@@ -27,6 +27,7 @@ public class Deer : MonoBehaviour
     public float food = 1;
     public float starveRate;
     public float eatThreshold = .5f;
+    public float health = 1;
     void Start()
     {
         idleTimer = 0;
@@ -59,8 +60,6 @@ public class Deer : MonoBehaviour
             anim.SetFloat("x", animX);
             anim.SetFloat("y", animY);
 
-            Debug.Log("Dist: " + Vector2.Distance(transform.position, targetPos));
-            Debug.DrawLine(transform.position, targetPos, Color.red);
             if (Vector2.Distance(transform.position, targetPos) <= arriveThresh)
             {
                 float val = Random.Range(0f, 1f);
@@ -128,5 +127,15 @@ public class Deer : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         startWalking();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            Destroy(collision.gameObject);
+            health -= collision.GetComponent<Bullet>().damage;
+        }
+        
     }
 }

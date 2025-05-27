@@ -1217,11 +1217,11 @@ GameObject:
   m_Component:
   - component: {fileID: 522055446}
   - component: {fileID: 522055447}
+  - component: {fileID: 522055453}
   - component: {fileID: 522055450}
   - component: {fileID: 522055448}
   - component: {fileID: 522055451}
   - component: {fileID: 522055452}
-  - component: {fileID: 522055453}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1370,6 +1370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3199e6ce677b4040b0ddbcd0cd1e8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 7033879478151312079, guid: 9159a4a6203ce43da8050ed121588b97, type: 3}
+  cam: {fileID: 519420031}
+  shootOffset: {x: 0, y: 0.5, z: 0}
+  fireDelay: 0.3
+  bulletSpeed: 0.7
 --- !u!1001 &551284409
 PrefabInstance:
   m_ObjectHideFlags: 0
