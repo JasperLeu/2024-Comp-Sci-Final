@@ -71,11 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Apply movement
-        if (!GetComponent<Hunger>().isDead)
-        {
-            // Apply Speed
-            rb.velocity = speed * moveInput.normalized;
-        }
+        // Apply Speed
+        rb.velocity = speed * moveInput.normalized;
     }
 }

@@ -22,6 +22,8 @@ public class Deer : MonoBehaviour
 
     [Header("Animations")]
     public Animator anim;
+    public GameObject hitEffect;
+    public GameObject deathEffect; 
 
     [Header("Stats")]
     public float food = 1;
@@ -93,9 +95,9 @@ public class Deer : MonoBehaviour
         // eat food if on grass or near a plant
 
         // DYING
-        if (food == 0)
+        if (food <= 0 || health <= 0)
         {
-            Destroy(gameObject);
+            die();
         }
     }
 
@@ -135,7 +137,19 @@ public class Deer : MonoBehaviour
         {
             Destroy(collision.gameObject);
             health -= collision.GetComponent<Bullet>().damage;
+            startWalking();
+            GameObject effect = Instantiate(hitEffect, collision.ClosestPoint(transform.position), Quaternion.identity);
+            Destroy(effect, 2f);
         }
-        
+
+    }
+
+    // death function
+    private void die()
+    {
+        deathEffect.GetComponentInChildren<ParticleSystem>().Play();
+        deathEffect.transform.parent = null;
+        Destroy(deathEffect, 2f);
+        Destroy(gameObject);
     }
 }

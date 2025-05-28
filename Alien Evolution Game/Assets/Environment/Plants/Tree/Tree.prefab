@@ -137,10 +137,80 @@ MonoBehaviour:
     shadowPos: {x: 0.04, y: -0.11, z: 0.01}
     shadowScale: {x: 0.7636286, y: 0.2290886, z: 0.7636286}
   health: 1
-  healthRates: {x: -0.03, y: 0.15}
-  agedHealthRates: {x: -0.1, y: 0.1}
+  fertilityDecayRate:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.08999634
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5525294
+      value: -0.0059471615
+      inSlope: 0.22741221
+      outSlope: 0.22741221
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.06499863
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   age: 0
-  ageTime: 40
+  ageTime: 30
+  ageDecayRate:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0
+      value: 0.04194764
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7358558
+      value: -0.03836038
+      inSlope: -0.3254305
+      outSlope: -0.3254305
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06981668
+      outWeight: 0.22953263
+    - serializedVersion: 3
+      time: 1
+      value: -0.119986385
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reproductionChance: 0.13
+  reproductionDistRange: {x: 5, y: 7}
+  reproductionCooldown: 6.5
+  maxReproductionCount: 2
+  minSpawnDist: 2.5
+  maxSpaceChecks: 10
 --- !u!70 &5619455484622882380
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class Ground : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 float val = Mathf.PerlinNoise(x * 0.1f, y * 0.1f) / 2 + .5f;
-                fertilityTexture.SetPixel(x, y, new Color(val, 0, 0));
+                fertilityTexture.SetPixel(x, y, new Color(1, 0, 0));
             }
         }
         fertilityTexture.Apply();

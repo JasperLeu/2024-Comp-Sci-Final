@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         float dir = transform.localEulerAngles.z * Mathf.Deg2Rad;
-        Vector3 off = new Vector3(Mathf.Cos(dir), Mathf.Sin(dir), 0) * speed;
+        Vector3 off = new Vector3(Mathf.Cos(dir), Mathf.Sin(dir), 0) * speed * Time.deltaTime;
         transform.position += off;
         if (Vector2.Distance(Vector2.zero, transform.position) > maxDist)
         {
