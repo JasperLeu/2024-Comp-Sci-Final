@@ -54,14 +54,17 @@ public class Ground : MonoBehaviour
         }
     }
 
-    public void FertilizeArea(int xPos, int yPos, float value, float radius)
+    public void FertilizeArea(Vector2 pos, float value, float radius)
     {
+        // translate global position to texture coordinates
+        Vector2 newPos = pos / 60 * new Vector2(width, height) + new Vector2(width / 2, height / 2);
+        Debug.Log("Pos: " + newPos);
         // Fertilize in a circular area
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                if (Vector2.Distance(new Vector2(x, y), new Vector2(xPos, yPos)) < radius)
+                if (Vector2.Distance(new Vector2(x, y), newPos) < radius)
                 {
                     Color pixelColor = fertilityTexture.GetPixel(x, y);
                     float newValue = Mathf.Clamp(pixelColor.r + value, 0, 1);

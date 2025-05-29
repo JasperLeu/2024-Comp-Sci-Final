@@ -64,7 +64,7 @@ MonoBehaviour:
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 29127
+    ctime1: 24528
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.0026681516
-      value: -0.1061154
+      time: 0.000078470446
+      value: -0.11652005
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1.0024438
-      value: 0.07700533
+      time: 1.0019939
+      value: 0.08823055
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -118,13 +118,13 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   age: 0
-  ageTime: 25
+  ageTime: 20
   ageDecayRate:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.0020980835
-      value: 0.050605774
+      time: -0.00680542
+      value: 0.045627594
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1.0075073
-      value: -0.1249154
+      time: 1.014982
+      value: -0.09973985
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -143,12 +143,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  reproductionChance: 0.2
+  reproductionChance: 0.25
   reproductionDistRange: {x: 0.8, y: 3}
-  reproductionCooldown: 5
-  maxReproductionCount: 5
+  reproductionCooldown: 4
+  maxReproductionCount: 6
   minSpawnDist: 0.8
-  maxSpaceChecks: 10
+  maxSpaceChecks: 7
 --- !u!95 &3106742745713128325
 Animator:
   serializedVersion: 5

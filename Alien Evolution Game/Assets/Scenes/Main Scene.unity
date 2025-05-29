@@ -453,8 +453,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1706217458}
-  - {fileID: 162254734}
   - {fileID: 1975056390}
+  - {fileID: 1825579188}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &157913792
@@ -470,20 +470,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plants: []
-  plantInits:
+  plantSpawners:
   - count: 25
     prefab: {fileID: 1285107784874675923, guid: 81648b0bd3c2b744ab4e9f0bd3058701, type: 3}
     parent: {fileID: 1975056390}
-    ageRange: {x: 0.1, y: 0.6}
-  - count: 300
+    ageRange: {x: 0.3, y: 0.7}
+  - count: 350
     prefab: {fileID: 745705402700605542, guid: 2f1ec8b0e745bc24fbc36d79187676c6, type: 3}
     parent: {fileID: 1975056390}
-    ageRange: {x: 0.1, y: 0.5}
---- !u!4 &162254734 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2508466687252325057, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-  m_PrefabInstance: {fileID: 1527466028}
-  m_PrefabAsset: {fileID: 0}
+    ageRange: {x: 0.6, y: 0.8}
+  animalSpawners:
+  - count: 15
+    prefab: {fileID: 3217910113272991007, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
+    parent: {fileID: 1825579188}
+    ageRange: {x: 0.4, y: 0.7}
 --- !u!1 &165235731
 GameObject:
   m_ObjectHideFlags: 0
@@ -6902,63 +6902,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1527466028
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 157913791}
-    m_Modifications:
-    - target: {fileID: 2508466687252325057, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508466687252325057, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508466687252325057, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508466687252325057, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508466687252325057, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508466687252325057, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508466687252325057, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508466687252325057, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508466687252325057, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2508466687252325057, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3217910113272991007, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
-      propertyPath: m_Name
-      value: Deer
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 11fc1ee5e5e4c3345992274a292ed095, type: 3}
 --- !u!1 &1706217457
 GameObject:
   m_ObjectHideFlags: 0
@@ -7060,6 +7003,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1825579187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1825579188}
+  m_Layer: 0
+  m_Name: Animals Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1825579188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825579187}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 157913791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1892078248
 GameObject:
