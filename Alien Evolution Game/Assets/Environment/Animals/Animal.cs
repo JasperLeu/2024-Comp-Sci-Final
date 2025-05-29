@@ -113,6 +113,7 @@ public class Animal : MonoBehaviour
             anim.SetFloat("x", animX);
             anim.SetFloat("y", animY);
 
+            Debug.DrawLine(transform.position, targetPos, Color.red);
             if (Vector2.Distance(transform.position, targetPos) <= arriveThresh)
             {
 
