@@ -58,7 +58,6 @@ public class Ground : MonoBehaviour
     {
         // translate global position to texture coordinates
         Vector2 newPos = pos / 60 * new Vector2(width, height) + new Vector2(width / 2, height / 2);
-        Debug.Log("Pos: " + newPos);
         // Fertilize in a circular area
         for (int x = 0; x < width; x++)
         {
@@ -74,5 +73,14 @@ public class Ground : MonoBehaviour
         }
         // Apply the changes to the texture
         fertilityTexture.Apply();
+    }
+
+    public Vector2 getPixelPos(Vector3 globalPos)
+    {
+        // Convert global position to texture coordinates
+        Vector2 pixelPos = globalPos / 60 * new Vector2(width, height) + new Vector2(width / 2, height / 2);
+        pixelPos.x = Mathf.RoundToInt(Mathf.Clamp(pixelPos.x, 0, width));
+        pixelPos.y = Mathf.RoundToInt(Mathf.Clamp(pixelPos.y, 0, height));
+        return pixelPos;
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
+    public GameManager gameManager;
+
     [Header("Movement")]
     public Rigidbody2D rb;
     public float speed;
@@ -52,7 +54,13 @@ public class Animal : MonoBehaviour
 
     [Header("Health")]
     public float health = 1;
-    public float passiveHealRate;
+    public AnimationCurve passiveHealingOverAge;
+
+    [Header("Eating")]
+    public float eatThresh;
+    public float eatRange;
+    public float eatAmount;
+    public string eatAnimTrigger;
 
     [Header("Fertilization")]
     public Ground ground;
@@ -65,7 +73,6 @@ public class Animal : MonoBehaviour
     void Start()
     {
         // initialize values
-        age = 0;
         health = 1;
         childrenCount = 0;
         idleCounter = 0;
@@ -80,7 +87,7 @@ public class Animal : MonoBehaviour
         fTimer = 0;
 
 
-
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         ground = GameObject.FindGameObjectWithTag("Ground").GetComponent<Ground>();
         transform.localScale = Vector3.one * sizeOverAge.Evaluate(age);
         startWalking();
@@ -131,6 +138,26 @@ public class Animal : MonoBehaviour
             {
                 goIdle();
             }
+            // Eating when arriving at target position
+            if (food < eatThresh)
+            {
+                bool inRange = false;
+                foreach (GameObject plant in gameManager.plants)
+                {
+                    if (Vector2.Distance(transform.position, plant.transform.position) < eatRange)
+                    {
+                        gameManager.plants.Remove(plant);
+                        Destroy(plant);
+                        inRange = true;
+                        break;
+                    }
+                }
+                if (inRange)
+                {
+                    food += eatAmount;
+                    anim.SetTrigger(eatAnimTrigger);
+                }
+            }
         }
         // IDLING
         else
@@ -162,6 +189,7 @@ public class Animal : MonoBehaviour
                 Vector2 spawnPos = new Vector3(Mathf.Cos(dir), Mathf.Sin(dir), 0) * dist + transform.position;
                 GameObject child = Instantiate(childPrefab, spawnPos, Quaternion.identity, transform.parent);
                 child.GetComponent<Animal>().food = 0.5f + food / 2;
+                child.GetComponent<Animal>().age = 0;
             }
         }
 
@@ -176,7 +204,7 @@ public class Animal : MonoBehaviour
         }
 
         // HEALTH
-        health += passiveHealRate * Time.deltaTime;
+        health += passiveHealingOverAge.Evaluate(age) * Time.deltaTime;
 
         // HUNGER
         food -= starveRate * Time.deltaTime;

@@ -115,23 +115,29 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   states:
-  - parts:
+  - animated: 0
+    parts:
     - {fileID: -745319587, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
     - {fileID: -101646767, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
+    collision: 1
     collisionPos: {x: 0.1026241, y: 0.2862732}
     collisionSize: {x: 1.0062525, y: 0.34306207}
     shadowPos: {x: 0.09, y: 0.2, z: 0.01}
     shadowScale: {x: 0.3780773, y: 0.1134232, z: 0.3780773}
-  - parts:
+  - animated: 0
+    parts:
     - {fileID: 2077314507, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
     - {fileID: 798051645, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
+    collision: 1
     collisionPos: {x: 0.08723154, y: 0.09642649}
     collisionSize: {x: 1.447513, y: 0.53803986}
     shadowPos: {x: 0.06, y: -0.01, z: 0.01}
     shadowScale: {x: 0.67748505, y: 0.20324554, z: 0.67748505}
-  - parts:
+  - animated: 0
+    parts:
     - {fileID: 177313572, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
     - {fileID: 569503041, guid: e8f24c301f2973c41b97f9589532f878, type: 3}
+    collision: 1
     collisionPos: {x: 0.08238937, y: 0.04084989}
     collisionSize: {x: 1.5526004, y: 0.52623934}
     shadowPos: {x: 0.04, y: -0.11, z: 0.01}
@@ -141,8 +147,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: -0.08999634
+      time: -0.010696411
+      value: -0.11291504
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -150,8 +156,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.5525294
-      value: -0.0059471615
+      time: 0.36867625
+      value: 0.0029334538
       inSlope: 0.22741221
       outSlope: 0.22741221
       tangentMode: 0
@@ -159,8 +165,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0.06499863
+      time: 1.0167236
+      value: 0.066913605
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -170,14 +176,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  fertility: 0
   age: 0
   ageTime: 30
   ageDecayRate:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0
-      value: 0.04194764
+      time: -0.0072021484
+      value: 0.029808566
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -185,17 +192,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.7358558
-      value: -0.03836038
-      inSlope: -0.3254305
-      outSlope: -0.3254305
+      time: 0.747095
+      value: -0.052010458
+      inSlope: -0.27084592
+      outSlope: -0.27084592
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.06981668
-      outWeight: 0.22953263
+      inWeight: 0.33333334
+      outWeight: 0.14274962
     - serializedVersion: 3
-      time: 1
-      value: -0.119986385
+      time: 1.0107422
+      value: -0.13285929
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -97,8 +97,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.000078470446
-      value: -0.11652005
+      time: -0.00041470584
+      value: -0.14112817
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1.0019939
-      value: 0.08823055
+      time: 1.0059506
+      value: 0.06616534
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -117,14 +117,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  fertility: 0
   age: 0
-  ageTime: 20
+  ageTime: 15
   ageDecayRate:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.00680542
-      value: 0.045627594
+      time: -0.031016424
+      value: 0.027175179
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -132,8 +133,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1.014982
-      value: -0.09973985
+      time: 1.0276334
+      value: -0.14162216
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -143,10 +144,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  reproductionChance: 0.25
+  reproductionChance: 0.2
   reproductionDistRange: {x: 0.8, y: 3}
   reproductionCooldown: 4
-  maxReproductionCount: 6
+  maxReproductionCount: 4
   minSpawnDist: 0.8
   maxSpaceChecks: 7
 --- !u!95 &3106742745713128325

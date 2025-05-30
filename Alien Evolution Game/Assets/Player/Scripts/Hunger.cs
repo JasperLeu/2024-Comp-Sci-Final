@@ -8,42 +8,27 @@ public class Hunger : MonoBehaviour
     public ParticleSystem deathEffect;
     public GameObject bodyObj;
     [Header("Hunger")]
-    public int food;
-    public int maxFood;
-    public float starveDelay;
-    float starveTimer;
+    public float food;
+    public float maxFood;
+    public float starveRate;
     public HungerBar bar;
     public float flashSpeed;
     void Start()
     {
         // Initialize food and hunger
-        food = Mathf.RoundToInt(maxFood / 2);
-        bar.maxHunger = maxFood;
+        food = maxFood/2;
         bar.food = food;
-        bar.initializeBar();
+        bar.maxFood = maxFood;
     }
 
     void Update()
     {
         // Update hunger
-        starveTimer += Time.deltaTime;
-        if (starveTimer > starveDelay)
-        {
-            starveTimer = 0;
-            food -= 1;
-        }
+        food -= starveRate * Time.deltaTime;
 
         // Update hunger bar
         food = Mathf.Clamp(food, 0, maxFood);
         bar.food = food;
-        if (starveTimer > starveDelay / 2)
-        {
-            bar.flashingSpeed = (starveTimer+.5f) / starveDelay * flashSpeed;
-        }
-        else
-        {
-            bar.flashingSpeed = 0;
-        }
 
         // DYING
         if (food == 0)

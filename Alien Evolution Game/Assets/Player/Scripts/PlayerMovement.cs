@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
     bool idle = true;
     Vector2 moveInput;
-    Vector2 animVec;
+    public Vector2 animVec;
 
     void Start()
     {

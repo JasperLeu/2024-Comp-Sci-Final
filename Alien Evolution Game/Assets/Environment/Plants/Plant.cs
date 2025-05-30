@@ -36,6 +36,7 @@ public class Plant : MonoBehaviour
     // health
     public float health = 1;
     public AnimationCurve fertilityDecayRate;
+    public float fertility;
     [Header("Age")]
     public float age = 0;
     public float ageTime;
@@ -60,9 +61,8 @@ public class Plant : MonoBehaviour
     void Update()
     {
         // Update Stats
-        int xPos = Mathf.FloorToInt(transform.position.x) + ground.width / 2;
-        int yPos = Mathf.FloorToInt(transform.position.y) + ground.height / 2;
-        float fertility = ground.fertilityTexture.GetPixel(xPos, yPos).r;
+        Vector2 pos = ground.getPixelPos(transform.position);
+        fertility = ground.fertilityTexture.GetPixel(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y)).r;
         health += fertilityDecayRate.Evaluate(fertility) * Time.deltaTime;
         health += ageDecayRate.Evaluate(age) * Time.deltaTime;
         age += Time.deltaTime / ageTime * fertility;

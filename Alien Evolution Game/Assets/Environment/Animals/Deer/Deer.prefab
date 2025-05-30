@@ -157,20 +157,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 489cc577bc2f68345b299460ef415371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   rb: {fileID: 9058008371448984394}
   speed: 6
   targetPos: {x: 0, y: 0}
-  distRange: {x: 7, y: 12}
+  distRange: {x: 3, y: 5}
   arriveThresh: 1
   idle: 0
-  idleDelayRange: {x: 2, y: 3}
-  idleTimeRange: {x: 6, y: 9}
+  idleDelayRange: {x: 4, y: 7}
+  idleTimeRange: {x: 5, y: 8}
   anim: {fileID: 1191433624988409044}
   hitEffect: {fileID: 7444441577465084020, guid: b050281e10da1f844a75b6b574abd593, type: 3}
   deathEffect: {fileID: 9106458657906806583}
   childPrefab: {fileID: 3217910113272991007}
   age: 0
-  ageTime: 30
+  ageTime: 40
   ageDelay: 2
   sizeOverAge:
     serializedVersion: 2
@@ -197,10 +198,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rDistRange: {x: 1.5, y: 4}
-  rDelayRange: {x: 10, y: 15}
+  rDelayRange: {x: 12, y: 17}
   maxChildren: 2
   food: 1
-  starveRate: 0.05
+  starveRate: 0.08
   colorOverHunger:
     serializedVersion: 2
     key0: {r: 0.55721295, g: 0.5943396, b: 0.43454075, a: 1}
@@ -232,7 +233,43 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   health: 1
-  passiveHealRate: 0.1
+  passiveHealingOverAge:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0059432983
+      value: 0.0627594
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7557092
+      value: 0.022512391
+      inSlope: -0.13629381
+      outSlope: -0.13629381
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.23700605
+      outWeight: 0.3695751
+    - serializedVersion: 3
+      time: 1.01
+      value: -0.03501129
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  eatThresh: 0.5
+  eatRange: 2
+  eatAmount: 0.3
+  eatAnimTrigger: Eat
   ground: {fileID: 0}
   fRadiusRange: {x: 13, y: 20}
   fDelayRange: {x: 0.2, y: 0.7}
