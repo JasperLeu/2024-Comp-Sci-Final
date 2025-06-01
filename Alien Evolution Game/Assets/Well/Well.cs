@@ -72,6 +72,7 @@ public class Well : MonoBehaviour
     }
     void Update()
     {
+        bool skipRolling = false;
         // Check if player is within interaction range and active
         Vector2 wellCenter = transform.position;
         if (player.activeInHierarchy && Vector2.Distance(player.transform.position, wellCenter + interactionPos) < interactionRange)
@@ -105,8 +106,9 @@ public class Well : MonoBehaviour
 
 
         // ---- EXIT LOGIC ----
-        if (Input.GetKeyDown(exitKey) && speed == 0 && isLowered)
+        if (Input.GetKeyDown(exitKey) && speed == 0 && isLowered && !skipRolling)
         {
+            Debug.Log("Exiting well");
             ExitWell();
         }
         if (!player.activeInHierarchy)
@@ -130,9 +132,11 @@ public class Well : MonoBehaviour
             float newPos;
 
             // Skipping rolling if the exit key is pressed
-            if (Input.GetKeyDown(exitKey))
+            skipRolling = Input.GetKeyDown(exitKey);
+            if (skipRolling)
             {
                 speed = 0;
+                Debug.Log("Skipped rolling");
             }
 
             foreach (GameObject i in icons)
@@ -162,17 +166,24 @@ public class Well : MonoBehaviour
                     }
                 }
             }
+            if (skipRolling)
+            {
+                return;
+            }
         }
     }
 
     void ExitWell()
     {
-        anim.SetTrigger(raiseTrigger);
-        uiPanel.SetActive(false);
-        rollButton.SetActive(true);
-        wheel.SetActive(false);
-        winName.text = "";
-        winDescription.text = "";
+        if (uiPanel.activeInHierarchy)
+        {
+            anim.SetTrigger(raiseTrigger);
+            uiPanel.SetActive(false);
+            rollButton.SetActive(true);
+            wheel.SetActive(false);
+            winName.text = "";
+            winDescription.text = "";
+        }
     }
 
     // show the range of the interaction

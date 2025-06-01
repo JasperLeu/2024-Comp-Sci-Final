@@ -33,7 +33,10 @@ public class Hunger : MonoBehaviour
     void Update()
     {
         // Update hunger
-        food -= starveRate * Time.deltaTime;
+        if (GetComponent<PlayerMovement>().canMove)
+        {
+            food -= starveRate * Time.deltaTime;
+        }
 
         // Update hunger ui
         food = Mathf.Clamp(food, 0, maxFood);

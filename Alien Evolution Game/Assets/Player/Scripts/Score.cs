@@ -15,7 +15,10 @@ public class Score : MonoBehaviour
     void Update()
     {
         scoreText.text = "Score: " + score.ToString("F0");
-        timer += Time.deltaTime;
+        if (GetComponent<PlayerMovement>().canMove)
+        {
+            timer += Time.deltaTime;
+        }
         if (timer >= 1f)
         {
             score += 1;
