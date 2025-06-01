@@ -2244,9 +2244,11 @@ MonoBehaviour:
   eatKey: e
   food: 0
   maxFood: 10
-  starveRate: 0.2
+  starveRate: 0.45
   bar: {fileID: 271922435}
   flashSpeed: 25
+  foodValue: 1
+  foodPickup: 1
   foodStored: 0
   foodStoredText: {fileID: 277956822}
 --- !u!70 &522055451
@@ -2311,30 +2313,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Upgrades:
-  - icon: {fileID: 21300000, guid: 1ab1f0f041069224cabc6512bf8528f1, type: 3}
-    name: Max Ammo
-    description: +2 max ammo
-    maxAmmoChange: 2
-    damageChange: 0
-    fireDelayChange: 0
-    bulletSpeedChange: 0
-    killScoreChange: 0
-  - icon: {fileID: 21300000, guid: 1ed6acc0b4add8a45858b3d5f2479fce, type: 3}
-    name: Bullet Speed
-    description: + 10 bullet speed
-    maxAmmoChange: 0
-    damageChange: 0
-    fireDelayChange: 0
-    bulletSpeedChange: 10
-    killScoreChange: 0
-  - icon: {fileID: 21300000, guid: 448f7fcd1130412428df5501bd37e56e, type: 3}
-    name: Damage
-    description: + 15 damage
-    maxAmmoChange: 0
-    damageChange: 0.15
-    fireDelayChange: 0
-    bulletSpeedChange: 0
-    killScoreChange: 0
+  - icon: {fileID: 21300000, guid: b3febf2eb5f84754c9d6c92b7e5f615f, type: 3}
+    chance: 1
+    name: Magazine Upgrade
+    description: + 2 max ammo
+    componentToUpgrade: {fileID: 522055453}
+    variableName: maxAmmo
+    valueChange: 2
+  - icon: {fileID: 21300000, guid: f96bb2b65c7ae684089b6ab2ad4115da, type: 3}
+    chance: 1
+    name: Quicker Bullets
+    description: + 5 Bullet Speed
+    componentToUpgrade: {fileID: 522055453}
+    variableName: bulletSpeed
+    valueChange: 5
+  - icon: {fileID: 21300000, guid: accc34b7c1dc43d41b70026065600fee, type: 3}
+    chance: 1
+    name: Faster Reload
+    description: + 2 Reload Speed
+    componentToUpgrade: {fileID: 522055453}
+    variableName: fireDelay
+    valueChange: -0.2
+  - icon: {fileID: 21300000, guid: 5699ef442de30b04aa1455e872ea77f8, type: 3}
+    chance: 1
+    name: Better Saturation
+    description: '- 1 Starve Rate'
+    componentToUpgrade: {fileID: 522055450}
+    variableName: starveRate
+    valueChange: -0.03
+  - icon: {fileID: 21300000, guid: cb44dbeee9aa7d843bbc994545bac918, type: 3}
+    chance: 1
+    name: Enhanced Meat
+    description: + 0.5 Food Value
+    componentToUpgrade: {fileID: 522055450}
+    variableName: foodValue
+    valueChange: 0.5
+  - icon: {fileID: 21300000, guid: 5a1c186e4ad7a4245b3e438966d71eb1, type: 3}
+    chance: 0.4
+    name: Scavenger
+    description: + 1 Food From Animals
+    componentToUpgrade: {fileID: 522055450}
+    variableName: foodPickup
+    valueChange: 1
+  - icon: {fileID: 21300000, guid: 4365861e9e420ef4c97ae208429c9f5e, type: 3}
+    chance: 1
+    name: Quick Feet
+    description: + 1.5 Movement Speed
+    componentToUpgrade: {fileID: 522055447}
+    variableName: speed
+    valueChange: 1.5
   bullet: {fileID: 7033879478151312079, guid: 9159a4a6203ce43da8050ed121588b97, type: 3}
   playerMovement: {fileID: 0}
   ammo: 0
@@ -2536,16 +2563,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64689d4067924ea41bd761cc5bcacd75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  operation: 0
   upgrade:
     icon: {fileID: 0}
+    chance: 0
     name: 
     description: 
-    maxAmmoChange: 0
-    damageChange: 0
-    fireDelayChange: 0
-    bulletSpeedChange: 0
-    killScoreChange: 0
-  player: {fileID: 0}
+    componentToUpgrade: {fileID: 0}
+    variableName: 
+    valueChange: 0
 --- !u!1 &659779498
 GameObject:
   m_ObjectHideFlags: 0
@@ -4567,7 +4593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1188580648
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4937,8 +4963,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10868,7 +10894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1808962731
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11392,7 +11418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2014410125
 RectTransform:
   m_ObjectHideFlags: 0

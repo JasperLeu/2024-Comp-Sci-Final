@@ -8,13 +8,12 @@ using UnityEngine.UI;
 public class upgrade
 {
     public Sprite icon;
+    public float chance = 1;
     public string name;
     public string description;
-    public int maxAmmoChange;
-    public float damageChange;
-    public float fireDelayChange;
-    public float bulletSpeedChange;
-    public int killScoreChange;
+    public Component componentToUpgrade;
+    public string variableName;
+    public float valueChange;
 }
 
 public class Shooting : MonoBehaviour

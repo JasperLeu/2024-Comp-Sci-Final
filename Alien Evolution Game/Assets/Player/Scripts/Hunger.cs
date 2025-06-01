@@ -18,6 +18,8 @@ public class Hunger : MonoBehaviour
     public float starveRate;
     public HungerBar bar;
     public float flashSpeed;
+    public float foodValue = 1;
+    public int foodPickup = 1;
     [Header("Food Storage")]
     public int foodStored;
     public TextMeshProUGUI foodStoredText;
@@ -46,7 +48,7 @@ public class Hunger : MonoBehaviour
         // Eating food
         if (Input.GetKeyDown(eatKey) && foodStored > 0)
         {
-            food += 1;
+            food += foodValue;
             foodStored--;
             bar.food = food;
         }

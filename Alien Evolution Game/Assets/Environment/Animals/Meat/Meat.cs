@@ -27,7 +27,7 @@ public class Meat : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Hunger>().foodStored++;
+            collision.GetComponent<Hunger>().foodStored += collision.GetComponent<Hunger>().foodPickup;
             Destroy(gameObject);
         }
     }

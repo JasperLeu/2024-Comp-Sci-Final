@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 public class Well : MonoBehaviour
 {
     public GameObject player;
+    Shooting shooting;
 
     [Header("Interaction")]
     public bool isLowered = false;
@@ -53,20 +54,17 @@ public class Well : MonoBehaviour
         winDescription.text = "";
 
         // Initialize the icons in the wheel
-        Shooting shooting = player.GetComponent<Shooting>();
-        int startIndex = Random.Range(0, shooting.Upgrades.Length);
-        firstIcon.GetComponent<Upgrade>().upgrade = shooting.Upgrades[startIndex];
+        shooting = player.GetComponent<Shooting>();
+        firstIcon.GetComponent<Upgrade>().upgrade = randUpgrade();
         firstIcon.GetComponent<Upgrade>().updateUI();
-        firstIcon.GetComponent<Upgrade>().player = shooting;
         icons = new GameObject[iconCount];
         icons[0] = firstIcon;
         for (int i = 1; i < iconCount; i++)
         {
             GameObject icon = Instantiate(firstIcon, Vector3.zero, Quaternion.identity, iconParent.transform);
             icon.transform.localPosition = firstIcon.transform.localPosition + new Vector3(i * iconWidth, 0, 0);
-            icon.GetComponent<Upgrade>().upgrade = shooting.Upgrades[(startIndex + i) % shooting.Upgrades.Length];
+            icon.GetComponent<Upgrade>().upgrade = randUpgrade();
             icon.GetComponent<Upgrade>().updateUI();
-            icon.GetComponent<Upgrade>().player = shooting;
             icons[i] = icon;
         }
     }
@@ -142,10 +140,13 @@ public class Well : MonoBehaviour
             foreach (GameObject i in icons)
             {
                 posX = (i.transform.localPosition.x + iconParent.transform.localPosition.x);
+                // move icon back to  start if too far
                 if (posX > maxPos)
                 {
                     newPos = icons[(c+1) % iconCount].transform.localPosition.x - iconWidth;
                     i.transform.localPosition = new Vector3(newPos, 0, 0);
+                    i.GetComponent<Upgrade>().upgrade = randUpgrade();
+                    i.GetComponent<Upgrade>().updateUI();
                 }
                 c++;
                 if (speed == 0)
@@ -171,6 +172,25 @@ public class Well : MonoBehaviour
                 return;
             }
         }
+    }
+    upgrade randUpgrade()
+    {
+        float chanceTotal = 0;
+        foreach (upgrade u in shooting.Upgrades)
+        {
+            chanceTotal += u.chance;
+        }
+        float chance = Random.Range(0f, chanceTotal);
+        float sum = 0f;
+        foreach (upgrade u in shooting.Upgrades)
+        {
+            if (chance < u.chance + sum)
+            {
+                return u;
+            }
+            sum += u.chance;
+        }
+        return shooting.Upgrades[0];
     }
 
     void ExitWell()
