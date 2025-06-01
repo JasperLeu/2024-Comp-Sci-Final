@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 1050354307600137401}
   - component: {fileID: 296938010864015439}
   - component: {fileID: 8398586492520557704}
+  - component: {fileID: 4281647920698156319}
   m_Layer: 0
   m_Name: FoodDrop
   m_TagString: Untagged
@@ -130,6 +131,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a98d447804c7a549a90d3f5e7ca64f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 10
+  foodValue: 2
+  meatSprite: {fileID: 3324956691272576871}
+  lifeGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 0.38428882, g: 0.4056604, b: 0.1549929, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!58 &8398586492520557704
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -165,3 +199,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.76
+--- !u!114 &4281647920698156319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7154778661823885272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bd3a3d4e6b0a44c8a072aa50c5e42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  live: 0
+  offset: 30

@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> plants;
     public plantSpawner[] plantSpawners;
     public animalSpawner[] animalSpawners;
+    public float wellRadius;
+
     void Start()
     {
         // spawn plants
@@ -36,6 +38,11 @@ public class GameManager : MonoBehaviour
                 do
                 {
                     newPos = new Vector3(Random.Range(-30, 30), Random.Range(-30, 30), 0);
+                    if (Vector2.Distance(newPos, Vector2.zero) < wellRadius)
+                    {
+                        validPos = false;
+                        continue;
+                    }
                     validPos = true;
                     foreach (GameObject plant in plants)
                     {
@@ -60,6 +67,13 @@ public class GameManager : MonoBehaviour
             {
                 Vector3 newPos;
                 newPos = new Vector3(Random.Range(-30, 30), Random.Range(-30, 30), 0);
+
+                if (Vector2.Distance(newPos, Vector2.zero) < wellRadius)
+                {
+                    i--; // Retry if position is too close to the well
+                    continue;
+                }
+
                 GameObject g = Instantiate(a.prefab, newPos, Quaternion.identity, a.parent);
                 g.GetComponent<Animal>().age = Random.Range(a.ageRange.x, a.ageRange.y);
             }

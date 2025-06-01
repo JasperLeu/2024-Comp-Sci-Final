@@ -11,9 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public Rigidbody2D rb;
     public Animator anim;
-    bool idle = true;
     Vector2 moveInput;
     public Vector2 animVec;
+    public bool canMove = true;
 
     void Start()
     {
@@ -65,6 +65,13 @@ public class PlayerMovement : MonoBehaviour
         {
             animVec = animVec.normalized * .5f;
         }
+
+        if (!canMove)
+        {
+            animVec = Vector2.right / 2;
+            moveInput = Vector2.zero;
+        }
+        
         anim.SetFloat("x", animVec[0]);
         anim.SetFloat("y", animVec[1]);
     }

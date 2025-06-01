@@ -159,19 +159,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   rb: {fileID: 9058008371448984394}
-  speed: 6
+  speed: 4
   targetPos: {x: 0, y: 0}
   distRange: {x: 3, y: 5}
   arriveThresh: 1
   idle: 0
-  idleDelayRange: {x: 4, y: 7}
+  idleDelayRange: {x: 3, y: 7}
   idleTimeRange: {x: 5, y: 8}
   anim: {fileID: 1191433624988409044}
-  hitEffect: {fileID: 7444441577465084020, guid: b050281e10da1f844a75b6b574abd593, type: 3}
-  deathEffect: {fileID: 9106458657906806583}
   childPrefab: {fileID: 3217910113272991007}
   age: 0
-  ageTime: 40
+  ageTime: 50
   ageDelay: 2
   sizeOverAge:
     serializedVersion: 2
@@ -198,10 +196,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rDistRange: {x: 1.5, y: 4}
-  rDelayRange: {x: 12, y: 17}
+  rDelayRange: {x: 15, y: 25}
   maxChildren: 2
   food: 1
-  starveRate: 0.08
+  starveRate: 0.04
   colorOverHunger:
     serializedVersion: 2
     key0: {r: 0.55721295, g: 0.5943396, b: 0.43454075, a: 1}
@@ -271,9 +269,14 @@ MonoBehaviour:
   eatAmount: 0.3
   eatAnimTrigger: Eat
   ground: {fileID: 0}
-  fRadiusRange: {x: 13, y: 20}
-  fDelayRange: {x: 0.2, y: 0.7}
-  fAdd: 0.3
+  fRadiusRange: {x: 15, y: 23}
+  fDelayRange: {x: 0.2, y: 0.5}
+  fAdd: 0.25
+  hitEffect: {fileID: 7444441577465084020, guid: b050281e10da1f844a75b6b574abd593, type: 3}
+  deathEffect: {fileID: 9106458657906806583}
+  meatAsset: {fileID: 7154778661823885272, guid: 67f4f05af62cca846824cbab10c7991b, type: 3}
+  statText: {fileID: 1946770050063312512, guid: b3ebb3645a3901d4b9c24b45f666e65f, type: 3}
+  statTextOffset: {x: 1, y: 1, z: 0}
 --- !u!50 &9058008371448984394
 Rigidbody2D:
   serializedVersion: 4

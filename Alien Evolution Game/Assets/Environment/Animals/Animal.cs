@@ -28,8 +28,6 @@ public class Animal : MonoBehaviour
 
     [Header("Animations")]
     public Animator anim;
-    public GameObject hitEffect;
-    public GameObject deathEffect;
 
     [Header("Aging")]
     public GameObject childPrefab;
@@ -69,6 +67,14 @@ public class Animal : MonoBehaviour
     public float fAdd;
     float fTimer = 0;
     float fDelay;
+
+    [Header("Death")]
+    public GameObject hitEffect;
+    public GameObject deathEffect;
+    public GameObject meatAsset;
+    public GameObject statText;
+    public Vector3 statTextOffset;
+
 
     void Start()
     {
@@ -154,6 +160,8 @@ public class Animal : MonoBehaviour
                 }
                 if (inRange)
                 {
+                    // Eating
+                    goIdle();
                     food += eatAmount;
                     anim.SetTrigger(eatAnimTrigger);
                 }
@@ -255,6 +263,7 @@ public class Animal : MonoBehaviour
         idle = true;
         idleDelay = Mathf.RoundToInt(Random.Range(idleDelayRange[0], idleDelayRange[1]));
         idleTimer = 0;
+        idleCounter = 0;
         rb.velocity = Vector2.zero;
     }
 
@@ -271,6 +280,17 @@ public class Animal : MonoBehaviour
         {
             Destroy(collision.gameObject);
             health -= collision.GetComponent<Bullet>().damage;
+            if (health <= 0)
+            {
+                // if player killed the animal
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                player.GetComponent<Score>().score += player.GetComponent<Shooting>().killScore;
+                player.GetComponent<Shooting>().ammo += player.GetComponent<Shooting>().ammoPerKill;
+                GameObject scoreText = Instantiate(statText, transform.position + statTextOffset, Quaternion.identity);
+                scoreText.GetComponent<FloatingStat>().stat = "+" + player.GetComponent<Shooting>().killScore + " Score";
+                GameObject ammoText = Instantiate(statText, transform.position + statTextOffset + new Vector3(0, -1, 0), Quaternion.identity);
+                ammoText.GetComponent<FloatingStat>().stat = "+" + player.GetComponent<Shooting>().ammoPerKill + " Ammo";
+            }
             startWalking();
             GameObject effect = Instantiate(hitEffect, collision.ClosestPoint(transform.position), Quaternion.identity);
             Destroy(effect, 2f);
@@ -281,6 +301,7 @@ public class Animal : MonoBehaviour
     // death function
     private void die()
     {
+        Instantiate(meatAsset, transform.position, Quaternion.identity);
         deathEffect.GetComponentInChildren<ParticleSystem>().Play();
         deathEffect.transform.parent = null;
         Destroy(deathEffect, 2f);

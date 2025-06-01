@@ -4,11 +4,28 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class upgrade
+{
+    public Sprite icon;
+    public string name;
+    public string description;
+    public int maxAmmoChange;
+    public float damageChange;
+    public float fireDelayChange;
+    public float bulletSpeedChange;
+    public int killScoreChange;
+}
+
 public class Shooting : MonoBehaviour
 {
+    [Header("Upgrades")]
+    public upgrade[] Upgrades;
+
     [Header("Refs")]
     public GameObject bullet;
     public PlayerMovement playerMovement; // Reference to PlayerMovement
+
     [Header("Stats")]
     public int ammo;
     public int maxAmmo;
@@ -16,6 +33,8 @@ public class Shooting : MonoBehaviour
     public float fireDelay;
     float delayTimer;
     public float bulletSpeed;
+    public int killScore;
+    public int ammoPerKill;
 
     [Header("Shoot Offsets")]
     public Vector3 upOffset;
@@ -45,7 +64,8 @@ public class Shooting : MonoBehaviour
         Sprite sprite = loadingFrames[Mathf.RoundToInt(index)];
         loadingCircle.sprite = sprite;
         // Text update
-        ammoCountText.text = ammo.ToString();
+        ammoCountText.text = ammo.ToString() + "/" + maxAmmo.ToString();
+        ammo = Mathf.Clamp(ammo, 0, maxAmmo);
 
 
         // Use animVec as the shooting direction
@@ -73,7 +93,7 @@ public class Shooting : MonoBehaviour
 
         float angle = Mathf.Atan2(shootDir.y, shootDir.x) * Mathf.Rad2Deg;
 
-        if (delayTimer > fireDelay && Input.GetKeyDown(KeyCode.Space) && ammo > 0)
+        if (delayTimer > fireDelay && Input.GetKeyDown(KeyCode.Space) && ammo > 0 && GetComponent<PlayerMovement>().canMove)
         {
             // Change values
             delayTimer = 0;

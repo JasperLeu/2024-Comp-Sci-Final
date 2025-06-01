@@ -109,10 +109,16 @@ public class Plant : MonoBehaviour
             int spaceChecks = 0;
             do
             {
+                validPos = true;
                 spaceChecks++;
                 dir = Random.Range(0f, 2 * Mathf.PI);
                 dist = Random.Range(reproductionDistRange.x, reproductionDistRange.y);
                 spawnPos = transform.position + new Vector3(Mathf.Cos(dir), Mathf.Sin(dir), 0) * dist;
+                if (Vector2.Distance(spawnPos, Vector2.zero) < gameManager.wellRadius)
+                {
+                    validPos = false;
+                    continue;
+                }
                 foreach (GameObject plant in gameManager.plants)
                 {
                     if (Vector2.Distance(plant.transform.position, spawnPos) < Mathf.Min(minSpawnDist, plant.GetComponent<Plant>().minSpawnDist))
