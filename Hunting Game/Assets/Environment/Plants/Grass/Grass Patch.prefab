@@ -115,8 +115,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.0059506
-      value: 0.06616534
+      time: 1.0185238
+      value: 0.058040038
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.031016424
-      value: 0.027175179
+      time: -0.04428394
+      value: 0.021586647
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -153,9 +153,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  reproductionChance: 0.2
+  reproductionChance: 0.15
   reproductionDistRange: {x: 0.8, y: 3}
-  reproductionCooldown: 4
+  reproductionCooldown: 5
   maxReproductionCount: 4
   minSpawnDist: 0.8
   maxSpaceChecks: 7

@@ -169,34 +169,34 @@ MonoBehaviour:
   anim: {fileID: 1191433624988409044}
   childPrefab: {fileID: 3217910113272991007}
   age: 0
-  ageTime: 50
+  ageTime: 30
   ageDelay: 2
   sizeOverAge:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0.5798645
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      time: -0.01702118
+      value: 0.4130249
+      inSlope: 0.5771513
+      outSlope: 0.5771513
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      inSlope: 0.5771513
+      outSlope: 0.5771513
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   rDistRange: {x: 1.5, y: 4}
-  rDelayRange: {x: 15, y: 25}
+  rDelayRange: {x: 16, y: 20}
   maxChildren: 2
   food: 1
   starveRate: 0.04
@@ -237,29 +237,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: -0.0059432983
       value: 0.0627594
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.03682129
+      outSlope: -0.03682129
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.31674486
     - serializedVersion: 3
-      time: 0.7557092
-      value: 0.022512391
-      inSlope: -0.13629381
-      outSlope: -0.13629381
+      time: 1.016897
+      value: -0.02812526
+      inSlope: -0.189092
+      outSlope: -0.189092
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.23700605
-      outWeight: 0.3695751
-    - serializedVersion: 3
-      time: 1.01
-      value: -0.03501129
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
+      inWeight: 0.06840819
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

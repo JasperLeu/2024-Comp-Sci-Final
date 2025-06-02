@@ -223,7 +223,7 @@ public class Animal : MonoBehaviour
         if (ageTimer > ageDelay)
         {
             ageTimer = 0;
-            age += ageTime * ageDelay;
+            age += ageDelay / ageTime;
             transform.localScale = Vector3.one * sizeOverAge.Evaluate(age);
         }
 
